@@ -46,7 +46,7 @@ window.onload = function() {
   nx.startPulse();
   
 };
-},{"./lib/core/manager":2,"./lib/utils/dom":4,"./lib/utils/drawing":5,"./lib/utils/math":6,"extend":52,"webfontloader":53}],2:[function(require,module,exports){
+},{"./lib/core/manager":2,"./lib/utils/dom":4,"./lib/utils/drawing":5,"./lib/utils/math":6,"extend":49,"webfontloader":54}],2:[function(require,module,exports){
 
 /** 
   @title NexusUI API
@@ -532,7 +532,7 @@ manager.prototype.labelSize = function(size) {
 
 
 
-},{"../utils/drawing":5,"../utils/timing":7,"../utils/transmit":8,"../widgets":18,"events":47,"util":51}],3:[function(require,module,exports){
+},{"../utils/drawing":5,"../utils/timing":7,"../utils/transmit":8,"../widgets":18,"events":48,"util":53}],3:[function(require,module,exports){
 var EventEmitter = require('events').EventEmitter;
 var util = require('util');
 var domUtils = require('../utils/dom');
@@ -1128,7 +1128,7 @@ widget.prototype.makeRoomForLabel = function() {
   this.labelY = this.height - this.labelSize/2;
   // must add the above code to widget.resize
 }
-},{"../utils/dom":4,"../utils/drawing":5,"../utils/timing":7,"../utils/transmit":8,"events":47,"util":51}],4:[function(require,module,exports){
+},{"../utils/dom":4,"../utils/drawing":5,"../utils/timing":7,"../utils/transmit":8,"events":48,"util":53}],4:[function(require,module,exports){
 
 /** @class utils 
   Shared utility functions. These functions are exposed as methods of nx in NexusUI projects, i.e. .mtof() here can be accessed in your project with nx.mtof().
@@ -1694,7 +1694,7 @@ banner.prototype.click = function() {
 		window.location = this.link;
 	}
 }
-},{"../core/widget":3,"util":51}],10:[function(require,module,exports){
+},{"../core/widget":3,"util":53}],10:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 var drawing = require('../utils/drawing');
@@ -1913,7 +1913,7 @@ button.prototype.setTouchImage = function(image) {
 	this.imageTouch.onload = this.draw.bind(this)
 	this.imageTouch.src = image;
 }
-},{"../core/widget":3,"../utils/drawing":5,"util":51}],11:[function(require,module,exports){
+},{"../core/widget":3,"../utils/drawing":5,"util":53}],11:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 
@@ -2013,7 +2013,7 @@ colors.prototype.click = function(e) {
 colors.prototype.move = function(e) {
 	this.click(e);
 }
-},{"../core/widget":3,"util":51}],12:[function(require,module,exports){
+},{"../core/widget":3,"util":53}],12:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 
@@ -2081,7 +2081,7 @@ comment.prototype.draw = function() {
 	}
 	this.wrapText(this.val.text, 6, 3+this.size, this.GUI.w-6, this.size);
 }
-},{"../core/widget":3,"util":51}],13:[function(require,module,exports){
+},{"../core/widget":3,"util":53}],13:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -2169,7 +2169,7 @@ crossfade.prototype.move = function() {
 	this.draw();
 	this.transmit(this.val);
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],14:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],14:[function(require,module,exports){
 var math = require('../utils/math');
 var util = require('util');
 var widget = require('../core/widget');
@@ -2377,7 +2377,7 @@ dial.prototype.aniBounce = function() {
 }
 
 
-},{"../core/widget":3,"../utils/math":6,"util":51}],15:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],15:[function(require,module,exports){
 var startTime = 0;
 
 var math = require('../utils/math')
@@ -2683,7 +2683,7 @@ envelope.prototype.findNearestNode = function(x, y, nodes) {
 
 	return nearestIndex;
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],16:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],16:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -3025,7 +3025,7 @@ ghost.prototype.click = function(e) {
 		this.draw();
 	}
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],17:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],17:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -3383,7 +3383,7 @@ ghostlist.prototype.click = function(e) {
 		this.draw();
 	}
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],18:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],18:[function(require,module,exports){
 module.exports = {
   banner: require('./banner'),
   button: require('./button'),
@@ -3406,6 +3406,7 @@ module.exports = {
   multislider: require('./multislider'),
   multitouch: require('./multitouch'),
   number: require('./number'),
+  oscilloscope: require('./oscilloscope'),
   panel: require('./panel'),
   position: require('./position'),
   range: require('./range'),
@@ -3423,7 +3424,7 @@ module.exports = {
   wavegrain: require('./wavegrain'),
   windows: require('./windows')
 }
-},{"./banner":9,"./button":10,"./colors":11,"./comment":12,"./crossfade":13,"./dial":14,"./envelope":15,"./ghost":16,"./ghostlist":17,"./joints":19,"./keyboard":20,"./matrix":21,"./message":22,"./meter":23,"./metro":24,"./metroball":25,"./motion":26,"./mouse":27,"./multislider":28,"./multitouch":29,"./number":30,"./panel":31,"./position":32,"./range":33,"./select":34,"./slider":35,"./string":36,"./tabs":37,"./text":38,"./tilt":39,"./toggle":40,"./trace":41,"./typewriter":42,"./vinyl":43,"./waveform":44,"./wavegrain":45,"./windows":46}],19:[function(require,module,exports){
+},{"./banner":9,"./button":10,"./colors":11,"./comment":12,"./crossfade":13,"./dial":14,"./envelope":15,"./ghost":16,"./ghostlist":17,"./joints":19,"./keyboard":20,"./matrix":21,"./message":22,"./meter":23,"./metro":24,"./metroball":25,"./motion":26,"./mouse":27,"./multislider":28,"./multitouch":29,"./number":30,"./oscilloscope":31,"./panel":32,"./position":33,"./range":34,"./select":35,"./slider":36,"./string":37,"./tabs":38,"./text":39,"./tilt":40,"./toggle":41,"./trace":42,"./typewriter":43,"./vinyl":44,"./waveform":45,"./wavegrain":46,"./windows":47}],19:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -3620,7 +3621,7 @@ joints.prototype.aniBounce = function() {
 	}
 }
 
-},{"../core/widget":3,"../utils/math":6,"util":51}],20:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],20:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 var drawing = require('../utils/drawing');
@@ -3955,7 +3956,7 @@ keyboard.prototype.release = function(e) {
 
 
 
-},{"../core/widget":3,"../utils/drawing":5,"../utils/math":6,"util":51}],21:[function(require,module,exports){
+},{"../core/widget":3,"../utils/drawing":5,"../utils/math":6,"util":53}],21:[function(require,module,exports){
 var math = require('../utils/math');
 var drawing = require('../utils/drawing');
 var util = require('util');
@@ -4405,7 +4406,7 @@ matrix.prototype.life = function() {
   return false;
 }
 
-},{"../core/widget":3,"../utils/drawing":5,"../utils/math":6,"util":51}],22:[function(require,module,exports){
+},{"../core/widget":3,"../utils/drawing":5,"../utils/math":6,"util":53}],22:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 
@@ -4477,7 +4478,7 @@ message.prototype.click = function(e) {
 message.prototype.release = function(e) {
 	this.draw();
 }
-},{"../core/widget":3,"util":51}],23:[function(require,module,exports){
+},{"../core/widget":3,"util":53}],23:[function(require,module,exports){
 var util = require('util');
 var drawing = require('../utils/drawing');
 var widget = require('../core/widget');
@@ -4600,7 +4601,7 @@ meter.prototype.draw = function(){
 }
     
     
-},{"../core/widget":3,"../utils/drawing":5,"util":51}],24:[function(require,module,exports){
+},{"../core/widget":3,"../utils/drawing":5,"util":53}],24:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -4714,7 +4715,7 @@ metro.prototype.advance = function() {
 metro.prototype.customDestroy = function() {
 	nx.removeAni(this.advance.bind(this))
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],25:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],25:[function(require,module,exports){
 var math = require('../utils/math');
 var drawing = require('../utils/drawing');
 var util = require('util');
@@ -4978,7 +4979,7 @@ metroball.prototype.Ball = function(thisIndex, thisX, thisY, parent) {
 		}	
 	}	
 }
-},{"../core/widget":3,"../utils/drawing":5,"../utils/math":6,"util":51}],26:[function(require,module,exports){
+},{"../core/widget":3,"../utils/drawing":5,"../utils/math":6,"util":53}],26:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -5143,7 +5144,7 @@ motion.prototype.customDestroy = function() {
 	this.active = false;
 	window.removeEventListener("devicemotion",this.motionlistener,false);
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],27:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],27:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 var math = require('../utils/math');
@@ -5243,7 +5244,7 @@ mouse.prototype.move = function(e) {
 mouse.prototype.customDestroy = function() {
 	window.removeEventListener("mousemove",  this.boundmove, false);
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],28:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],28:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -5398,7 +5399,7 @@ multislider.prototype.setSliderValue = function(slider,value) {
 	this.transmit(msg);
 }
 
-},{"../core/widget":3,"../utils/math":6,"util":51}],29:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],29:[function(require,module,exports){
 var math = require('../utils/math');
 var drawing = require('../utils/drawing');
 var util = require('util');
@@ -5603,7 +5604,7 @@ multitouch.prototype.sendit = function() {
 	}
 	this.transmit(this.val);
 }
-},{"../core/widget":3,"../utils/drawing":5,"../utils/math":6,"util":51}],30:[function(require,module,exports){
+},{"../core/widget":3,"../utils/drawing":5,"../utils/math":6,"util":53}],30:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -5828,7 +5829,91 @@ number.prototype.release = function(e) {
 	}
 }
 
-},{"../core/widget":3,"../utils/math":6,"util":51}],31:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],31:[function(require,module,exports){
+var util = require('util');
+var drawing = require('../utils/drawing');
+var widget = require('../core/widget');
+
+/** 
+    
+    @public
+    @class oscilloscope 
+
+    Oscilloscope waveform visualizer.
+
+    ```html
+    <canvas nx="oscilloscope"></canvas>
+    ```
+    <canvas nx="oscilloscope" style="margin-left:25px"></canvas>
+*/
+
+var oscilloscope = module.exports = function(target) {
+
+    this.defaultSize = { width: 400, height: 125 };
+    widget.call(this, target);
+    this.dataArray;
+    this.init();
+
+}
+util.inherits(oscilloscope, widget);
+
+oscilloscope.prototype.init = function(){
+    with (this.context) {
+        fillStyle = this.colors.fill;
+        fillRect(0,0,this.GUI.w, this.GUI.h);
+    }
+
+	this.draw();
+}
+
+
+
+/** @method setup  
+    Connect the oscilloscope to an audio source and start the oscilloscope's graphics.
+    @param {audio context} [context] The audio context hosting the source node
+    @param {audio node} [source] The audio source node to analyze
+    */
+oscilloscope.prototype.setup = function(actx,source){
+    this.actx = actx;   
+    this.source = source;
+
+    this.analyser = this.actx.createAnalyser();
+    this.analyser.smoothingTimeConstant = 0.85;
+    this.analyser.fftsize = 1024;
+    this.bufferLength = this.analyser.frequencyBinCount;
+    this.dataArray = new Float32Array(this.bufferLength);
+    this.source.connect(this.analyser);
+    
+    this.draw();
+}
+
+oscilloscope.prototype.draw = function(){
+    
+    if(this.dataArray) {
+        this.analyser.getFloatTimeDomainData(this.dataArray);
+
+        with (this.context){
+            fillStyle = this.colors.fill;
+			fillRect(0,0,this.GUI.w, this.GUI.h);
+
+			lineWidth = 2;
+			strokeStyle = 'rgb(0, 200, 0)';
+			beginPath();
+			for (var j=0;j<this.dataArray.length;j++) {
+				lineTo(j/this.dataArray.length * this.GUI.w , (1 + this.dataArray[j]) * this.GUI.h / 2 );
+			}
+			stroke();
+        }
+    }
+
+    setTimeout(function() {
+        window.requestAnimationFrame(this.draw.bind(this));
+    }.bind(this), 1) 
+    
+}
+    
+    
+},{"../core/widget":3,"../utils/drawing":5,"util":53}],32:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 
@@ -5853,7 +5938,7 @@ panel.prototype.draw = function() {
 		fill();
 	}
 }
-},{"../core/widget":3,"util":51}],32:[function(require,module,exports){
+},{"../core/widget":3,"util":53}],33:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -6063,7 +6148,7 @@ position.prototype.aniBounce = function() {
 position.prototype.customDestroy = function() {
 	nx.removeAni(this.aniBounce);
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],33:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],34:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 var math = require('../utils/math')
@@ -6262,7 +6347,7 @@ range.prototype.move = function() {
 
 	}
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],34:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],35:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 
@@ -6375,7 +6460,7 @@ select.prototype.draw = function() {
     this.canvas.style.border = "solid 2px "+this.colors.border;
 
 }
-},{"../core/widget":3,"util":51}],35:[function(require,module,exports){
+},{"../core/widget":3,"util":53}],36:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -6591,7 +6676,7 @@ slider.prototype.move = function() {
 	this.val.value = math.prune(this.rangify(normalval),3)
 	this.transmit(this.val);
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],36:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],37:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 
@@ -6791,7 +6876,7 @@ string.prototype.pluck = function(which) {
 string.prototype.customDestroy = function() {
 	nx.removeAni(this.draw.bind(this));
 }
-},{"../core/widget":3,"util":51}],37:[function(require,module,exports){
+},{"../core/widget":3,"util":53}],38:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -6883,7 +6968,7 @@ tabs.prototype.click = function() {
 	this.transmit(this.val)
 	this.draw();
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],38:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],39:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 
@@ -6970,7 +7055,7 @@ text.prototype.draw = function() {
     this.canvas.style.backgroundColor = this.colors.fill;
     this.canvas.style.color = this.colors.black;
 }
-},{"../core/widget":3,"util":51}],39:[function(require,module,exports){
+},{"../core/widget":3,"util":53}],40:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -7107,7 +7192,7 @@ tilt.prototype.customDestroy = function() {
 	window.removeEventListener("deviceorientation",this.boundChromeTilt,false);
 	window.removeEventListener("mozOrientation",this.boundMozTilt,false);
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],40:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],41:[function(require,module,exports){
 var drawing = require('../utils/drawing');
 var util = require('util');
 var widget = require('../core/widget');
@@ -7179,7 +7264,7 @@ toggle.prototype.click = function() {
 	this.draw();
 	this.transmit(this.val);
 }
-},{"../core/widget":3,"../utils/drawing":5,"util":51}],41:[function(require,module,exports){
+},{"../core/widget":3,"../utils/drawing":5,"util":53}],42:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -7281,7 +7366,7 @@ trace.prototype.release = function() {
 	this.transmit(this.val);
 }
 
-},{"../core/widget":3,"../utils/math":6,"util":51}],42:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],43:[function(require,module,exports){
 var drawing = require('../utils/drawing');
 var util = require('util');
 var widget = require('../core/widget');
@@ -7529,7 +7614,7 @@ typewriter.prototype.customDestroy = function() {
 	window.removeEventListener("keydown", this.boundType);
 	window.removeEventListener("keyup", this.boundUntype);
 }
-},{"../core/widget":3,"../utils/drawing":5,"util":51}],43:[function(require,module,exports){
+},{"../core/widget":3,"../utils/drawing":5,"util":53}],44:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -7676,7 +7761,7 @@ vinyl.prototype.spin = function() {
 vinyl.prototype.customDestroy = function() {
 	nx.removeAni(this.spin.bind(this));
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],44:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],45:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 var math = require('../utils/math')
@@ -8041,7 +8126,7 @@ waveform.prototype.move = function() {
 	this.draw();
 
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],45:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],46:[function(require,module,exports){
 var util = require('util');
 var widget = require('../core/widget');
 var math = require('../utils/math')
@@ -8378,7 +8463,7 @@ wavegrain.prototype.tick = function() {
 	this.val.state = "on"
 	this.transmit(this.val);
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],46:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],47:[function(require,module,exports){
 var math = require('../utils/math')
 var util = require('util');
 var widget = require('../core/widget');
@@ -8621,7 +8706,7 @@ windows.prototype.restrict = function(item) {
 	}	
 	return item;
 }
-},{"../core/widget":3,"../utils/math":6,"util":51}],47:[function(require,module,exports){
+},{"../core/widget":3,"../utils/math":6,"util":53}],48:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -8924,7 +9009,98 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
+var hasOwn = Object.prototype.hasOwnProperty;
+var toStr = Object.prototype.toString;
+var undefined;
+
+var isArray = function isArray(arr) {
+	if (typeof Array.isArray === 'function') {
+		return Array.isArray(arr);
+	}
+
+	return toStr.call(arr) === '[object Array]';
+};
+
+var isPlainObject = function isPlainObject(obj) {
+	'use strict';
+	if (!obj || toStr.call(obj) !== '[object Object]') {
+		return false;
+	}
+
+	var has_own_constructor = hasOwn.call(obj, 'constructor');
+	var has_is_property_of_method = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+	// Not own constructor property must be Object
+	if (obj.constructor && !has_own_constructor && !has_is_property_of_method) {
+		return false;
+	}
+
+	// Own properties are enumerated firstly, so to speed up,
+	// if last one is own, then all properties are own.
+	var key;
+	for (key in obj) {}
+
+	return key === undefined || hasOwn.call(obj, key);
+};
+
+module.exports = function extend() {
+	'use strict';
+	var options, name, src, copy, copyIsArray, clone,
+		target = arguments[0],
+		i = 1,
+		length = arguments.length,
+		deep = false;
+
+	// Handle a deep copy situation
+	if (typeof target === 'boolean') {
+		deep = target;
+		target = arguments[1] || {};
+		// skip the boolean and the target
+		i = 2;
+	} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
+		target = {};
+	}
+
+	for (; i < length; ++i) {
+		options = arguments[i];
+		// Only deal with non-null/undefined values
+		if (options != null) {
+			// Extend the base object
+			for (name in options) {
+				src = target[name];
+				copy = options[name];
+
+				// Prevent never-ending loop
+				if (target === copy) {
+					continue;
+				}
+
+				// Recurse if we're merging plain objects or arrays
+				if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
+					if (copyIsArray) {
+						copyIsArray = false;
+						clone = src && isArray(src) ? src : [];
+					} else {
+						clone = src && isPlainObject(src) ? src : {};
+					}
+
+					// Never move original objects, clone them
+					target[name] = extend(deep, clone, copy);
+
+				// Don't bring in undefined values
+				} else if (copy !== undefined) {
+					target[name] = copy;
+				}
+			}
+		}
+	}
+
+	// Return the modified object
+	return target;
+};
+
+
+},{}],50:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -8949,7 +9125,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],49:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -9014,14 +9190,14 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],50:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],51:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -9143,6 +9319,8 @@ exports.debuglog = function(set) {
  * Echos the value of a value. Trys to print the value out
  * in the best way possible given the different types.
  *
+ * @param {Object} obj The object to print out.
+ * @param {Object} opts Optional options object that alters the output.
  */
 /* legacy: obj, showHidden, depth, colors*/
 function inspect(obj, opts) {
@@ -9577,6 +9755,19 @@ exports.log = function() {
 };
 
 
+/**
+ * Inherit the prototype methods from one constructor into another.
+ *
+ * The Function.prototype.inherits from lang.js rewritten as a standalone
+ * function (not on Function.prototype). NOTE: If this file is to be loaded
+ * during bootstrapping this function needs to be rewritten using some native
+ * functions as prototype setup using normal JavaScript does not work as
+ * expected during bootstrapping (see mirror.js in r114903).
+ *
+ * @param {function} ctor Constructor function which needs to inherit the
+ *     prototype.
+ * @param {function} superCtor Constructor function to inherit prototype from.
+ */
 exports.inherits = require('inherits');
 
 exports._extend = function(origin, add) {
@@ -9596,107 +9787,24 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":50,"_process":49,"inherits":48}],52:[function(require,module,exports){
-var hasOwn = Object.prototype.hasOwnProperty;
-var toString = Object.prototype.toString;
-var undefined;
-
-var isPlainObject = function isPlainObject(obj) {
-	'use strict';
-	if (!obj || toString.call(obj) !== '[object Object]') {
-		return false;
-	}
-
-	var has_own_constructor = hasOwn.call(obj, 'constructor');
-	var has_is_property_of_method = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
-	// Not own constructor property must be Object
-	if (obj.constructor && !has_own_constructor && !has_is_property_of_method) {
-		return false;
-	}
-
-	// Own properties are enumerated firstly, so to speed up,
-	// if last one is own, then all properties are own.
-	var key;
-	for (key in obj) {}
-
-	return key === undefined || hasOwn.call(obj, key);
-};
-
-module.exports = function extend() {
-	'use strict';
-	var options, name, src, copy, copyIsArray, clone,
-		target = arguments[0],
-		i = 1,
-		length = arguments.length,
-		deep = false;
-
-	// Handle a deep copy situation
-	if (typeof target === 'boolean') {
-		deep = target;
-		target = arguments[1] || {};
-		// skip the boolean and the target
-		i = 2;
-	} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
-		target = {};
-	}
-
-	for (; i < length; ++i) {
-		options = arguments[i];
-		// Only deal with non-null/undefined values
-		if (options != null) {
-			// Extend the base object
-			for (name in options) {
-				src = target[name];
-				copy = options[name];
-
-				// Prevent never-ending loop
-				if (target === copy) {
-					continue;
-				}
-
-				// Recurse if we're merging plain objects or arrays
-				if (deep && copy && (isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
-					if (copyIsArray) {
-						copyIsArray = false;
-						clone = src && Array.isArray(src) ? src : [];
-					} else {
-						clone = src && isPlainObject(src) ? src : {};
-					}
-
-					// Never move original objects, clone them
-					target[name] = extend(deep, clone, copy);
-
-				// Don't bring in undefined values
-				} else if (copy !== undefined) {
-					target[name] = copy;
-				}
-			}
-		}
-	}
-
-	// Return the modified object
-	return target;
-};
-
-
-},{}],53:[function(require,module,exports){
-/* Web Font Loader v1.6.10 - (c) Adobe Systems, Google. License: Apache 2.0 */
-(function(){function aa(a,b,c){return a.call.apply(a.bind,arguments)}function ba(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}function n(a,b,c){n=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?aa:ba;return n.apply(null,arguments)}var p=Date.now||function(){return+new Date};function q(a,b){this.F=a;this.k=b||a;this.H=this.k.document}var ca=!!window.FontFace;q.prototype.createElement=function(a,b,c){a=this.H.createElement(a);if(b)for(var d in b)b.hasOwnProperty(d)&&("style"==d?a.style.cssText=b[d]:a.setAttribute(d,b[d]));c&&a.appendChild(this.H.createTextNode(c));return a};function s(a,b,c){a=a.H.getElementsByTagName(b)[0];a||(a=document.documentElement);a.insertBefore(c,a.lastChild)}
-function t(a,b,c){b=b||[];c=c||[];for(var d=a.className.split(/\s+/),e=0;e<b.length;e+=1){for(var f=!1,g=0;g<d.length;g+=1)if(b[e]===d[g]){f=!0;break}f||d.push(b[e])}b=[];for(e=0;e<d.length;e+=1){f=!1;for(g=0;g<c.length;g+=1)if(d[e]===c[g]){f=!0;break}f||b.push(d[e])}a.className=b.join(" ").replace(/\s+/g," ").replace(/^\s+|\s+$/,"")}function u(a,b){for(var c=a.className.split(/\s+/),d=0,e=c.length;d<e;d++)if(c[d]==b)return!0;return!1}
-function v(a){if("string"===typeof a.fa)return a.fa;var b=a.k.location.protocol;"about:"==b&&(b=a.F.location.protocol);return"https:"==b?"https:":"http:"}function x(a,b,c){function d(){l&&e&&f&&(l(g),l=null)}b=a.createElement("link",{rel:"stylesheet",href:b,media:"all"});var e=!1,f=!0,g=null,l=c||null;ca?(b.onload=function(){e=!0;d()},b.onerror=function(){e=!0;g=Error("Stylesheet failed to load");d()}):setTimeout(function(){e=!0;d()},0);s(a,"head",b)}
-function y(a,b,c,d){var e=a.H.getElementsByTagName("head")[0];if(e){var f=a.createElement("script",{src:b}),g=!1;f.onload=f.onreadystatechange=function(){g||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState||(g=!0,c&&c(null),f.onload=f.onreadystatechange=null,"HEAD"==f.parentNode.tagName&&e.removeChild(f))};e.appendChild(f);setTimeout(function(){g||(g=!0,c&&c(Error("Script load timeout")))},d||5E3);return f}return null};function z(){this.S=0;this.K=null}function A(a){a.S++;return function(){a.S--;B(a)}}function C(a,b){a.K=b;B(a)}function B(a){0==a.S&&a.K&&(a.K(),a.K=null)};function D(a){this.ea=a||"-"}D.prototype.d=function(a){for(var b=[],c=0;c<arguments.length;c++)b.push(arguments[c].replace(/[\W_]+/g,"").toLowerCase());return b.join(this.ea)};function E(a,b){this.Q=a;this.M=4;this.L="n";var c=(b||"n4").match(/^([nio])([1-9])$/i);c&&(this.L=c[1],this.M=parseInt(c[2],10))}E.prototype.getName=function(){return this.Q};function da(a){return G(a)+" "+(a.M+"00")+" 300px "+H(a.Q)}function H(a){var b=[];a=a.split(/,\s*/);for(var c=0;c<a.length;c++){var d=a[c].replace(/['"]/g,"");-1!=d.indexOf(" ")||/^\d/.test(d)?b.push("'"+d+"'"):b.push(d)}return b.join(",")}function I(a){return a.L+a.M}
-function G(a){var b="normal";"o"===a.L?b="oblique":"i"===a.L&&(b="italic");return b}function ea(a){var b=4,c="n",d=null;a&&((d=a.match(/(normal|oblique|italic)/i))&&d[1]&&(c=d[1].substr(0,1).toLowerCase()),(d=a.match(/([1-9]00|normal|bold)/i))&&d[1]&&(/bold/i.test(d[1])?b=7:/[1-9]00/.test(d[1])&&(b=parseInt(d[1].substr(0,1),10))));return c+b};function fa(a,b){this.a=a;this.j=a.k.document.documentElement;this.O=b;this.g="wf";this.e=new D("-");this.da=!1!==b.events;this.u=!1!==b.classes}function ga(a){a.u&&t(a.j,[a.e.d(a.g,"loading")]);J(a,"loading")}function K(a){if(a.u){var b=u(a.j,a.e.d(a.g,"active")),c=[],d=[a.e.d(a.g,"loading")];b||c.push(a.e.d(a.g,"inactive"));t(a.j,c,d)}J(a,"inactive")}function J(a,b,c){if(a.da&&a.O[b])if(c)a.O[b](c.getName(),I(c));else a.O[b]()};function ha(){this.t={}}function ia(a,b,c){var d=[],e;for(e in b)if(b.hasOwnProperty(e)){var f=a.t[e];f&&d.push(f(b[e],c))}return d};function L(a,b){this.a=a;this.h=b;this.m=this.a.createElement("span",{"aria-hidden":"true"},this.h)}function M(a,b){var c=a.m,d;d="display:block;position:absolute;top:-9999px;left:-9999px;font-size:300px;width:auto;height:auto;line-height:normal;margin:0;padding:0;font-variant:normal;white-space:nowrap;font-family:"+H(b.Q)+";"+("font-style:"+G(b)+";font-weight:"+(b.M+"00")+";");c.style.cssText=d}function N(a){s(a.a,"body",a.m)}L.prototype.remove=function(){var a=this.m;a.parentNode&&a.parentNode.removeChild(a)};function O(a,b,c,d,e,f){this.G=a;this.J=b;this.f=d;this.a=c;this.v=e||3E3;this.h=f||void 0}O.prototype.start=function(){var a=this.a.k.document,b=this;Promise.race([new Promise(function(a,d){setTimeout(function(){d(b.f)},b.v)}),a.fonts.load(da(this.f),this.h)]).then(function(a){1===a.length?b.G(b.f):b.J(b.f)},function(){b.J(b.f)})};function P(a,b,c,d,e,f,g){this.G=a;this.J=b;this.a=c;this.f=d;this.h=g||"BESbswy";this.s={};this.v=e||3E3;this.Z=f||null;this.D=this.C=this.A=this.w=null;this.w=new L(this.a,this.h);this.A=new L(this.a,this.h);this.C=new L(this.a,this.h);this.D=new L(this.a,this.h);M(this.w,new E(this.f.getName()+",serif",I(this.f)));M(this.A,new E(this.f.getName()+",sans-serif",I(this.f)));M(this.C,new E("serif",I(this.f)));M(this.D,new E("sans-serif",I(this.f)));N(this.w);N(this.A);N(this.C);N(this.D)}
-var Q={ia:"serif",ha:"sans-serif"},R=null;function S(){if(null===R){var a=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent);R=!!a&&(536>parseInt(a[1],10)||536===parseInt(a[1],10)&&11>=parseInt(a[2],10))}return R}P.prototype.start=function(){this.s.serif=this.C.m.offsetWidth;this.s["sans-serif"]=this.D.m.offsetWidth;this.ga=p();T(this)};function ja(a,b,c){for(var d in Q)if(Q.hasOwnProperty(d)&&b===a.s[Q[d]]&&c===a.s[Q[d]])return!0;return!1}
-function T(a){var b=a.w.m.offsetWidth,c=a.A.m.offsetWidth,d;(d=b===a.s.serif&&c===a.s["sans-serif"])||(d=S()&&ja(a,b,c));d?p()-a.ga>=a.v?S()&&ja(a,b,c)&&(null===a.Z||a.Z.hasOwnProperty(a.f.getName()))?U(a,a.G):U(a,a.J):ka(a):U(a,a.G)}function ka(a){setTimeout(n(function(){T(this)},a),50)}function U(a,b){setTimeout(n(function(){this.w.remove();this.A.remove();this.C.remove();this.D.remove();b(this.f)},a),0)};function V(a,b,c){this.a=a;this.p=b;this.P=0;this.ba=this.Y=!1;this.v=c}var la=!!window.FontFace;V.prototype.V=function(a){var b=this.p;b.u&&t(b.j,[b.e.d(b.g,a.getName(),I(a).toString(),"active")],[b.e.d(b.g,a.getName(),I(a).toString(),"loading"),b.e.d(b.g,a.getName(),I(a).toString(),"inactive")]);J(b,"fontactive",a);this.ba=!0;ma(this)};
-V.prototype.W=function(a){var b=this.p;if(b.u){var c=u(b.j,b.e.d(b.g,a.getName(),I(a).toString(),"active")),d=[],e=[b.e.d(b.g,a.getName(),I(a).toString(),"loading")];c||d.push(b.e.d(b.g,a.getName(),I(a).toString(),"inactive"));t(b.j,d,e)}J(b,"fontinactive",a);ma(this)};function ma(a){0==--a.P&&a.Y&&(a.ba?(a=a.p,a.u&&t(a.j,[a.e.d(a.g,"active")],[a.e.d(a.g,"loading"),a.e.d(a.g,"inactive")]),J(a,"active")):K(a.p))};function na(a){this.F=a;this.q=new ha;this.$=0;this.T=this.U=!0}na.prototype.load=function(a){this.a=new q(this.F,a.context||this.F);this.U=!1!==a.events;this.T=!1!==a.classes;oa(this,new fa(this.a,a),a)};
-function pa(a,b,c,d,e){var f=0==--a.$;(a.T||a.U)&&setTimeout(function(){var a=e||null,l=d||null||{};if(0===c.length&&f)K(b.p);else{b.P+=c.length;f&&(b.Y=f);var h,k=[];for(h=0;h<c.length;h++){var m=c[h],w=l[m.getName()],r=b.p,F=m;r.u&&t(r.j,[r.e.d(r.g,F.getName(),I(F).toString(),"loading")]);J(r,"fontloading",F);r=null;r=la?new O(n(b.V,b),n(b.W,b),b.a,m,b.v,w):new P(n(b.V,b),n(b.W,b),b.a,m,b.v,a,w);k.push(r)}for(h=0;h<k.length;h++)k[h].start()}},0)}
-function oa(a,b,c){var d=[],e=c.timeout;ga(b);var d=ia(a.q,c,a.a),f=new V(a.a,b,e);a.$=d.length;b=0;for(c=d.length;b<c;b++)d[b].load(function(b,c,d){pa(a,f,b,c,d)})};function qa(a,b,c){this.N=a?a:b+ra;this.o=[];this.R=[];this.ca=c||""}var ra="//fonts.googleapis.com/css";function sa(a,b){for(var c=b.length,d=0;d<c;d++){var e=b[d].split(":");3==e.length&&a.R.push(e.pop());var f="";2==e.length&&""!=e[1]&&(f=":");a.o.push(e.join(f))}}
-qa.prototype.d=function(){if(0==this.o.length)throw Error("No fonts to load!");if(-1!=this.N.indexOf("kit="))return this.N;for(var a=this.o.length,b=[],c=0;c<a;c++)b.push(this.o[c].replace(/ /g,"+"));a=this.N+"?family="+b.join("%7C");0<this.R.length&&(a+="&subset="+this.R.join(","));0<this.ca.length&&(a+="&text="+encodeURIComponent(this.ca));return a};function ta(a){this.o=a;this.aa=[];this.I={}}
-var ua={latin:"BESbswy",cyrillic:"&#1081;&#1103;&#1046;",greek:"&#945;&#946;&#931;",khmer:"&#x1780;&#x1781;&#x1782;",Hanuman:"&#x1780;&#x1781;&#x1782;"},va={thin:"1",extralight:"2","extra-light":"2",ultralight:"2","ultra-light":"2",light:"3",regular:"4",book:"4",medium:"5","semi-bold":"6",semibold:"6","demi-bold":"6",demibold:"6",bold:"7","extra-bold":"8",extrabold:"8","ultra-bold":"8",ultrabold:"8",black:"9",heavy:"9",l:"3",r:"4",b:"7"},wa={i:"i",italic:"i",n:"n",normal:"n"},xa=/^(thin|(?:(?:extra|ultra)-?)?light|regular|book|medium|(?:(?:semi|demi|extra|ultra)-?)?bold|black|heavy|l|r|b|[1-9]00)?(n|i|normal|italic)?$/;
-ta.prototype.parse=function(){for(var a=this.o.length,b=0;b<a;b++){var c=this.o[b].split(":"),d=c[0].replace(/\+/g," "),e=["n4"];if(2<=c.length){var f;var g=c[1];f=[];if(g)for(var g=g.split(","),l=g.length,h=0;h<l;h++){var k;k=g[h];if(k.match(/^[\w-]+$/))if(k=xa.exec(k.toLowerCase()),null==k)k="";else{var m;m=k[1];if(null==m||""==m)m="4";else{var w=va[m];m=w?w:isNaN(m)?"4":m.substr(0,1)}k=k[2];k=[null==k||""==k?"n":wa[k],m].join("")}else k="";k&&f.push(k)}0<f.length&&(e=f);3==c.length&&(c=c[2],f=
-[],c=c?c.split(","):f,0<c.length&&(c=ua[c[0]])&&(this.I[d]=c))}this.I[d]||(c=ua[d])&&(this.I[d]=c);for(c=0;c<e.length;c+=1)this.aa.push(new E(d,e[c]))}};function ya(a,b){this.a=a;this.c=b}var za={Arimo:!0,Cousine:!0,Tinos:!0};ya.prototype.load=function(a){var b=new z,c=this.a,d=new qa(this.c.api,v(c),this.c.text),e=this.c.families;sa(d,e);var f=new ta(e);f.parse();x(c,d.d(),A(b));C(b,function(){a(f.aa,f.I,za)})};function W(a,b){this.a=a;this.c=b;this.X=[]}W.prototype.B=function(a){var b=this.a;return v(this.a)+(this.c.api||"//f.fontdeck.com/s/css/js/")+(b.k.location.hostname||b.F.location.hostname)+"/"+a+".js"};
-W.prototype.load=function(a){var b=this.c.id,c=this.a.k,d=this;b?(c.__webfontfontdeckmodule__||(c.__webfontfontdeckmodule__={}),c.__webfontfontdeckmodule__[b]=function(b,c){for(var g=0,l=c.fonts.length;g<l;++g){var h=c.fonts[g];d.X.push(new E(h.name,ea("font-weight:"+h.weight+";font-style:"+h.style)))}a(d.X)},y(this.a,this.B(b),function(b){b&&a([])})):a([])};function X(a,b){this.a=a;this.c=b}X.prototype.B=function(a){return(this.c.api||"https://use.typekit.net")+"/"+a+".js"};X.prototype.load=function(a){var b=this.c.id,c=this.a.k;b?y(this.a,this.B(b),function(b){if(b)a([]);else if(c.Typekit&&c.Typekit.config&&c.Typekit.config.fn){b=c.Typekit.config.fn;for(var e=[],f=0;f<b.length;f+=2)for(var g=b[f],l=b[f+1],h=0;h<l.length;h++)e.push(new E(g,l[h]));try{c.Typekit.load({events:!1,classes:!1,async:!0})}catch(k){}a(e)}},2E3):a([])};function Y(a,b){this.a=a;this.c=b}Y.prototype.B=function(a,b){var c=v(this.a),d=(this.c.api||"fast.fonts.net/jsapi").replace(/^.*http(s?):(\/\/)?/,"");return c+"//"+d+"/"+a+".js"+(b?"?v="+b:"")};
-Y.prototype.load=function(a){function b(){if(e["__mti_fntLst"+c]){var d=e["__mti_fntLst"+c](),g=[],l;if(d)for(var h=0;h<d.length;h++){var k=d[h].fontfamily;void 0!=d[h].fontStyle&&void 0!=d[h].fontWeight?(l=d[h].fontStyle+d[h].fontWeight,g.push(new E(k,l))):g.push(new E(k))}a(g)}else setTimeout(function(){b()},50)}var c=this.c.projectId,d=this.c.version;if(c){var e=this.a.k;y(this.a,this.B(c,d),function(c){c?a([]):b()}).id="__MonotypeAPIScript__"+c}else a([])};function Aa(a,b){this.a=a;this.c=b}Aa.prototype.load=function(a){var b,c,d=this.c.urls||[],e=this.c.families||[],f=this.c.testStrings||{},g=new z;b=0;for(c=d.length;b<c;b++)x(this.a,d[b],A(g));var l=[];b=0;for(c=e.length;b<c;b++)if(d=e[b].split(":"),d[1])for(var h=d[1].split(","),k=0;k<h.length;k+=1)l.push(new E(d[0],h[k]));else l.push(new E(d[0]));C(g,function(){a(l,f)})};var Z=new na(window);Z.q.t.custom=function(a,b){return new Aa(b,a)};Z.q.t.fontdeck=function(a,b){return new W(b,a)};Z.q.t.monotype=function(a,b){return new Y(b,a)};Z.q.t.typekit=function(a,b){return new X(b,a)};Z.q.t.google=function(a,b){return new ya(b,a)};var $={load:n(Z.load,Z)};"function"===typeof define&&define.amd?define(function(){return $}):"undefined"!==typeof module&&module.exports?module.exports=$:(window.WebFont=$,window.WebFontConfig&&Z.load(window.WebFontConfig));}());
+},{"./support/isBuffer":52,"_process":51,"inherits":50}],54:[function(require,module,exports){
+/* Web Font Loader v1.6.24 - (c) Adobe Systems, Google. License: Apache 2.0 */
+(function(){function aa(a,b,d){return a.call.apply(a.bind,arguments)}function ba(a,b,d){if(!a)throw Error();if(2<arguments.length){var c=Array.prototype.slice.call(arguments,2);return function(){var d=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(d,c);return a.apply(b,d)}}return function(){return a.apply(b,arguments)}}function p(a,b,d){p=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?aa:ba;return p.apply(null,arguments)}var q=Date.now||function(){return+new Date};function ca(a,b){this.a=a;this.m=b||a;this.c=this.m.document}var da=!!window.FontFace;function t(a,b,d,c){b=a.c.createElement(b);if(d)for(var e in d)d.hasOwnProperty(e)&&("style"==e?b.style.cssText=d[e]:b.setAttribute(e,d[e]));c&&b.appendChild(a.c.createTextNode(c));return b}function u(a,b,d){a=a.c.getElementsByTagName(b)[0];a||(a=document.documentElement);a.insertBefore(d,a.lastChild)}function v(a){a.parentNode&&a.parentNode.removeChild(a)}
+function w(a,b,d){b=b||[];d=d||[];for(var c=a.className.split(/\s+/),e=0;e<b.length;e+=1){for(var f=!1,g=0;g<c.length;g+=1)if(b[e]===c[g]){f=!0;break}f||c.push(b[e])}b=[];for(e=0;e<c.length;e+=1){f=!1;for(g=0;g<d.length;g+=1)if(c[e]===d[g]){f=!0;break}f||b.push(c[e])}a.className=b.join(" ").replace(/\s+/g," ").replace(/^\s+|\s+$/,"")}function y(a,b){for(var d=a.className.split(/\s+/),c=0,e=d.length;c<e;c++)if(d[c]==b)return!0;return!1}
+function z(a){if("string"===typeof a.f)return a.f;var b=a.m.location.protocol;"about:"==b&&(b=a.a.location.protocol);return"https:"==b?"https:":"http:"}function ea(a){return a.m.location.hostname||a.a.location.hostname}
+function A(a,b,d){function c(){k&&e&&f&&(k(g),k=null)}b=t(a,"link",{rel:"stylesheet",href:b,media:"all"});var e=!1,f=!0,g=null,k=d||null;da?(b.onload=function(){e=!0;c()},b.onerror=function(){e=!0;g=Error("Stylesheet failed to load");c()}):setTimeout(function(){e=!0;c()},0);u(a,"head",b)}
+function B(a,b,d,c){var e=a.c.getElementsByTagName("head")[0];if(e){var f=t(a,"script",{src:b}),g=!1;f.onload=f.onreadystatechange=function(){g||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState||(g=!0,d&&d(null),f.onload=f.onreadystatechange=null,"HEAD"==f.parentNode.tagName&&e.removeChild(f))};e.appendChild(f);setTimeout(function(){g||(g=!0,d&&d(Error("Script load timeout")))},c||5E3);return f}return null};function C(){this.a=0;this.c=null}function D(a){a.a++;return function(){a.a--;E(a)}}function F(a,b){a.c=b;E(a)}function E(a){0==a.a&&a.c&&(a.c(),a.c=null)};function G(a){this.a=a||"-"}G.prototype.c=function(a){for(var b=[],d=0;d<arguments.length;d++)b.push(arguments[d].replace(/[\W_]+/g,"").toLowerCase());return b.join(this.a)};function H(a,b){this.c=a;this.f=4;this.a="n";var d=(b||"n4").match(/^([nio])([1-9])$/i);d&&(this.a=d[1],this.f=parseInt(d[2],10))}function fa(a){return I(a)+" "+(a.f+"00")+" 300px "+J(a.c)}function J(a){var b=[];a=a.split(/,\s*/);for(var d=0;d<a.length;d++){var c=a[d].replace(/['"]/g,"");-1!=c.indexOf(" ")||/^\d/.test(c)?b.push("'"+c+"'"):b.push(c)}return b.join(",")}function K(a){return a.a+a.f}function I(a){var b="normal";"o"===a.a?b="oblique":"i"===a.a&&(b="italic");return b}
+function ga(a){var b=4,d="n",c=null;a&&((c=a.match(/(normal|oblique|italic)/i))&&c[1]&&(d=c[1].substr(0,1).toLowerCase()),(c=a.match(/([1-9]00|normal|bold)/i))&&c[1]&&(/bold/i.test(c[1])?b=7:/[1-9]00/.test(c[1])&&(b=parseInt(c[1].substr(0,1),10))));return d+b};function ha(a,b){this.c=a;this.f=a.m.document.documentElement;this.h=b;this.a=new G("-");this.j=!1!==b.events;this.g=!1!==b.classes}function ia(a){a.g&&w(a.f,[a.a.c("wf","loading")]);L(a,"loading")}function M(a){if(a.g){var b=y(a.f,a.a.c("wf","active")),d=[],c=[a.a.c("wf","loading")];b||d.push(a.a.c("wf","inactive"));w(a.f,d,c)}L(a,"inactive")}function L(a,b,d){if(a.j&&a.h[b])if(d)a.h[b](d.c,K(d));else a.h[b]()};function ja(){this.c={}}function ka(a,b,d){var c=[],e;for(e in b)if(b.hasOwnProperty(e)){var f=a.c[e];f&&c.push(f(b[e],d))}return c};function N(a,b){this.c=a;this.f=b;this.a=t(this.c,"span",{"aria-hidden":"true"},this.f)}function O(a){u(a.c,"body",a.a)}function P(a){return"display:block;position:absolute;top:-9999px;left:-9999px;font-size:300px;width:auto;height:auto;line-height:normal;margin:0;padding:0;font-variant:normal;white-space:nowrap;font-family:"+J(a.c)+";"+("font-style:"+I(a)+";font-weight:"+(a.f+"00")+";")};function Q(a,b,d,c,e,f){this.g=a;this.j=b;this.a=c;this.c=d;this.f=e||3E3;this.h=f||void 0}Q.prototype.start=function(){var a=this.c.m.document,b=this,d=q(),c=new Promise(function(c,e){function k(){q()-d>=b.f?e():a.fonts.load(fa(b.a),b.h).then(function(a){1<=a.length?c():setTimeout(k,25)},function(){e()})}k()}),e=new Promise(function(a,c){setTimeout(c,b.f)});Promise.race([e,c]).then(function(){b.g(b.a)},function(){b.j(b.a)})};function R(a,b,d,c,e,f,g){this.v=a;this.B=b;this.c=d;this.a=c;this.s=g||"BESbswy";this.f={};this.w=e||3E3;this.u=f||null;this.o=this.j=this.h=this.g=null;this.g=new N(this.c,this.s);this.h=new N(this.c,this.s);this.j=new N(this.c,this.s);this.o=new N(this.c,this.s);a=new H(this.a.c+",serif",K(this.a));a=P(a);this.g.a.style.cssText=a;a=new H(this.a.c+",sans-serif",K(this.a));a=P(a);this.h.a.style.cssText=a;a=new H("serif",K(this.a));a=P(a);this.j.a.style.cssText=a;a=new H("sans-serif",K(this.a));a=
+P(a);this.o.a.style.cssText=a;O(this.g);O(this.h);O(this.j);O(this.o)}var S={D:"serif",C:"sans-serif"},T=null;function U(){if(null===T){var a=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent);T=!!a&&(536>parseInt(a[1],10)||536===parseInt(a[1],10)&&11>=parseInt(a[2],10))}return T}R.prototype.start=function(){this.f.serif=this.j.a.offsetWidth;this.f["sans-serif"]=this.o.a.offsetWidth;this.A=q();la(this)};
+function ma(a,b,d){for(var c in S)if(S.hasOwnProperty(c)&&b===a.f[S[c]]&&d===a.f[S[c]])return!0;return!1}function la(a){var b=a.g.a.offsetWidth,d=a.h.a.offsetWidth,c;(c=b===a.f.serif&&d===a.f["sans-serif"])||(c=U()&&ma(a,b,d));c?q()-a.A>=a.w?U()&&ma(a,b,d)&&(null===a.u||a.u.hasOwnProperty(a.a.c))?V(a,a.v):V(a,a.B):na(a):V(a,a.v)}function na(a){setTimeout(p(function(){la(this)},a),50)}function V(a,b){setTimeout(p(function(){v(this.g.a);v(this.h.a);v(this.j.a);v(this.o.a);b(this.a)},a),0)};function W(a,b,d){this.c=a;this.a=b;this.f=0;this.o=this.j=!1;this.s=d}var X=null;W.prototype.g=function(a){var b=this.a;b.g&&w(b.f,[b.a.c("wf",a.c,K(a).toString(),"active")],[b.a.c("wf",a.c,K(a).toString(),"loading"),b.a.c("wf",a.c,K(a).toString(),"inactive")]);L(b,"fontactive",a);this.o=!0;oa(this)};
+W.prototype.h=function(a){var b=this.a;if(b.g){var d=y(b.f,b.a.c("wf",a.c,K(a).toString(),"active")),c=[],e=[b.a.c("wf",a.c,K(a).toString(),"loading")];d||c.push(b.a.c("wf",a.c,K(a).toString(),"inactive"));w(b.f,c,e)}L(b,"fontinactive",a);oa(this)};function oa(a){0==--a.f&&a.j&&(a.o?(a=a.a,a.g&&w(a.f,[a.a.c("wf","active")],[a.a.c("wf","loading"),a.a.c("wf","inactive")]),L(a,"active")):M(a.a))};function pa(a){this.j=a;this.a=new ja;this.h=0;this.f=this.g=!0}pa.prototype.load=function(a){this.c=new ca(this.j,a.context||this.j);this.g=!1!==a.events;this.f=!1!==a.classes;qa(this,new ha(this.c,a),a)};
+function ra(a,b,d,c,e){var f=0==--a.h;(a.f||a.g)&&setTimeout(function(){var a=e||null,k=c||null||{};if(0===d.length&&f)M(b.a);else{b.f+=d.length;f&&(b.j=f);var h,m=[];for(h=0;h<d.length;h++){var l=d[h],n=k[l.c],r=b.a,x=l;r.g&&w(r.f,[r.a.c("wf",x.c,K(x).toString(),"loading")]);L(r,"fontloading",x);r=null;null===X&&(X=window.FontFace?(x=/Gecko.*Firefox\/(\d+)/.exec(window.navigator.userAgent))?42<parseInt(x[1],10):!0:!1);X?r=new Q(p(b.g,b),p(b.h,b),b.c,l,b.s,n):r=new R(p(b.g,b),p(b.h,b),b.c,l,b.s,a,
+n);m.push(r)}for(h=0;h<m.length;h++)m[h].start()}},0)}function qa(a,b,d){var c=[],e=d.timeout;ia(b);var c=ka(a.a,d,a.c),f=new W(a.c,b,e);a.h=c.length;b=0;for(d=c.length;b<d;b++)c[b].load(function(b,c,d){ra(a,f,b,c,d)})};function sa(a,b){this.c=a;this.a=b}function ta(a,b,d){var c=z(a.c);a=(a.a.api||"fast.fonts.net/jsapi").replace(/^.*http(s?):(\/\/)?/,"");return c+"//"+a+"/"+b+".js"+(d?"?v="+d:"")}
+sa.prototype.load=function(a){function b(){if(e["__mti_fntLst"+d]){var c=e["__mti_fntLst"+d](),g=[],k;if(c)for(var h=0;h<c.length;h++){var m=c[h].fontfamily;void 0!=c[h].fontStyle&&void 0!=c[h].fontWeight?(k=c[h].fontStyle+c[h].fontWeight,g.push(new H(m,k))):g.push(new H(m))}a(g)}else setTimeout(function(){b()},50)}var d=this.a.projectId,c=this.a.version;if(d){var e=this.c.m;B(this.c,ta(this,d,c),function(c){c?a([]):b()}).id="__MonotypeAPIScript__"+d}else a([])};function ua(a,b){this.c=a;this.a=b}ua.prototype.load=function(a){var b,d,c=this.a.urls||[],e=this.a.families||[],f=this.a.testStrings||{},g=new C;b=0;for(d=c.length;b<d;b++)A(this.c,c[b],D(g));var k=[];b=0;for(d=e.length;b<d;b++)if(c=e[b].split(":"),c[1])for(var h=c[1].split(","),m=0;m<h.length;m+=1)k.push(new H(c[0],h[m]));else k.push(new H(c[0]));F(g,function(){a(k,f)})};function va(a,b,d){a?this.c=a:this.c=b+wa;this.a=[];this.f=[];this.g=d||""}var wa="//fonts.googleapis.com/css";function xa(a,b){for(var d=b.length,c=0;c<d;c++){var e=b[c].split(":");3==e.length&&a.f.push(e.pop());var f="";2==e.length&&""!=e[1]&&(f=":");a.a.push(e.join(f))}}
+function ya(a){if(0==a.a.length)throw Error("No fonts to load!");if(-1!=a.c.indexOf("kit="))return a.c;for(var b=a.a.length,d=[],c=0;c<b;c++)d.push(a.a[c].replace(/ /g,"+"));b=a.c+"?family="+d.join("%7C");0<a.f.length&&(b+="&subset="+a.f.join(","));0<a.g.length&&(b+="&text="+encodeURIComponent(a.g));return b};function za(a){this.f=a;this.a=[];this.c={}}
+var Aa={latin:"BESbswy",cyrillic:"\u0439\u044f\u0416",greek:"\u03b1\u03b2\u03a3",khmer:"\u1780\u1781\u1782",Hanuman:"\u1780\u1781\u1782"},Ba={thin:"1",extralight:"2","extra-light":"2",ultralight:"2","ultra-light":"2",light:"3",regular:"4",book:"4",medium:"5","semi-bold":"6",semibold:"6","demi-bold":"6",demibold:"6",bold:"7","extra-bold":"8",extrabold:"8","ultra-bold":"8",ultrabold:"8",black:"9",heavy:"9",l:"3",r:"4",b:"7"},Ca={i:"i",italic:"i",n:"n",normal:"n"},Da=/^(thin|(?:(?:extra|ultra)-?)?light|regular|book|medium|(?:(?:semi|demi|extra|ultra)-?)?bold|black|heavy|l|r|b|[1-9]00)?(n|i|normal|italic)?$/;
+function Ea(a){for(var b=a.f.length,d=0;d<b;d++){var c=a.f[d].split(":"),e=c[0].replace(/\+/g," "),f=["n4"];if(2<=c.length){var g;var k=c[1];g=[];if(k)for(var k=k.split(","),h=k.length,m=0;m<h;m++){var l;l=k[m];if(l.match(/^[\w-]+$/)){var n=Da.exec(l.toLowerCase());if(null==n)l="";else{l=n[2];l=null==l||""==l?"n":Ca[l];n=n[1];if(null==n||""==n)n="4";else var r=Ba[n],n=r?r:isNaN(n)?"4":n.substr(0,1);l=[l,n].join("")}}else l="";l&&g.push(l)}0<g.length&&(f=g);3==c.length&&(c=c[2],g=[],c=c?c.split(","):
+g,0<c.length&&(c=Aa[c[0]])&&(a.c[e]=c))}a.c[e]||(c=Aa[e])&&(a.c[e]=c);for(c=0;c<f.length;c+=1)a.a.push(new H(e,f[c]))}};function Fa(a,b){this.c=a;this.a=b}var Ga={Arimo:!0,Cousine:!0,Tinos:!0};Fa.prototype.load=function(a){var b=new C,d=this.c,c=new va(this.a.api,z(d),this.a.text),e=this.a.families;xa(c,e);var f=new za(e);Ea(f);A(d,ya(c),D(b));F(b,function(){a(f.a,f.c,Ga)})};function Ha(a,b){this.c=a;this.a=b}Ha.prototype.load=function(a){var b=this.a.id,d=this.c.m;b?B(this.c,(this.a.api||"https://use.typekit.net")+"/"+b+".js",function(b){if(b)a([]);else if(d.Typekit&&d.Typekit.config&&d.Typekit.config.fn){b=d.Typekit.config.fn;for(var e=[],f=0;f<b.length;f+=2)for(var g=b[f],k=b[f+1],h=0;h<k.length;h++)e.push(new H(g,k[h]));try{d.Typekit.load({events:!1,classes:!1,async:!0})}catch(m){}a(e)}},2E3):a([])};function Ia(a,b){this.c=a;this.f=b;this.a=[]}Ia.prototype.load=function(a){var b=this.f.id,d=this.c.m,c=this;b?(d.__webfontfontdeckmodule__||(d.__webfontfontdeckmodule__={}),d.__webfontfontdeckmodule__[b]=function(b,d){for(var g=0,k=d.fonts.length;g<k;++g){var h=d.fonts[g];c.a.push(new H(h.name,ga("font-weight:"+h.weight+";font-style:"+h.style)))}a(c.a)},B(this.c,z(this.c)+(this.f.api||"//f.fontdeck.com/s/css/js/")+ea(this.c)+"/"+b+".js",function(b){b&&a([])})):a([])};var Y=new pa(window);Y.a.c.custom=function(a,b){return new ua(b,a)};Y.a.c.fontdeck=function(a,b){return new Ia(b,a)};Y.a.c.monotype=function(a,b){return new sa(b,a)};Y.a.c.typekit=function(a,b){return new Ha(b,a)};Y.a.c.google=function(a,b){return new Fa(b,a)};var Z={load:p(Y.load,Y)};"function"===typeof define&&define.amd?define(function(){return Z}):"undefined"!==typeof module&&module.exports?module.exports=Z:(window.WebFont=Z,window.WebFontConfig&&Y.load(window.WebFontConfig));}());
 
 
 },{}]},{},[1]);
