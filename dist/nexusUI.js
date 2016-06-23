@@ -6526,6 +6526,22 @@ var slider = module.exports = function (target) {
 	```
 	*/
 	this.hslider = false;
+
+	/** @property {boolean}  log   Whether or not the slider should be logarithmic. 
+
+	```js
+	nx.onload = function() {
+	&nbsp; // Logarithmic values
+	&nbsp; slider1.log = true
+	}
+	```
+	*/
+    if (this.canvas.getAttribute("log")!=null) {
+    this.log = ( this.canvas.getAttribute("log") === "true" );
+    } else {
+    this.log = false;
+    }
+
 	this.handle;
 	this.relhandle;
 	this.cap;
@@ -6554,7 +6570,11 @@ slider.prototype.init = function() {
 
 slider.prototype.draw = function() {
 
-	var normalval = this.normalize(this.val.value)
+	var val = this.val.value
+	if(this.log === true){
+		val = this.log2lin(val)
+	}
+	var normalval = this.normalize(val);
 
 	//figure out text size
 	this.digits = this.calculateDigits()
@@ -6641,7 +6661,7 @@ slider.prototype.click = function() {
 
 slider.prototype.move = function() {
 
-	var normalval = this.normalize(this.val.value)
+	var normalval;
 
 	if (this.hslider) {
 		this.handle = this.clickPos.x;
@@ -6660,6 +6680,10 @@ slider.prototype.move = function() {
 			} else {	
 				normalval = math.clip(this.clickPos.x/this.GUI.w, 0, 1);
 			}
+			this.val.value = math.prune(this.rangify(normalval),3)
+			if(this.log === true){
+				this.val.value  = this.lin2log(this.val.value)
+			}
 			this.draw();
 		}
 	} else if (this.mode=="relative") {
@@ -6669,12 +6693,45 @@ slider.prototype.move = function() {
 			} else {
 				normalval = math.clip(normalval + ((this.deltaMove.x)/this.GUI.w),0,1);
 			}
+			this.val.value = math.prune(this.rangify(normalval),3)
+			if(this.log === true){
+				this.val.value  = this.lin2log(this.val.value)
+			}
 			this.draw();
 		}
 	}
 
-	this.val.value = math.prune(this.rangify(normalval),3)
 	this.transmit(this.val);
+}
+
+slider.prototype.log2lin = function(value) {
+    // linear values extrema
+    var minLin = this.min;
+    var maxLin = this.max;
+
+    // logarithmic values extrema
+    var minLog = this.min;;
+    var maxLog = Math.log(this.max);
+
+    // adjustment factor
+    var scale = (maxLog-minLog) / (maxLin-minLin);
+
+    return (Math.log(value) - minLog)/scale + minLin;
+}
+
+slider.prototype.lin2log = function(value) {
+    // linear values extrema
+    var minLin = this.min;
+    var maxLin = this.max;
+
+    // logarithmic values extrema
+    var minLog = this.min;;
+    var maxLog = Math.log(this.max);
+
+    // adjustment factor
+    var scale = (maxLog-minLog) / (maxLin-minLin);
+
+    return Math.exp(minLog + scale*(value-minLin));
 }
 },{"../core/widget":3,"../utils/math":6,"util":53}],37:[function(require,module,exports){
 var util = require('util');
