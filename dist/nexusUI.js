@@ -6710,7 +6710,8 @@ slider.prototype.log2lin = function(value) {
     var maxLin = this.max;
 
     // logarithmic values extrema
-    var minLog = this.min;;
+    var minLog = Math.log(this.min);
+	if(minLog < 0) minLog = 0;
     var maxLog = Math.log(this.max);
 
     // adjustment factor
@@ -6725,7 +6726,8 @@ slider.prototype.lin2log = function(value) {
     var maxLin = this.max;
 
     // logarithmic values extrema
-    var minLog = this.min;;
+    var minLog = Math.log(this.min);
+	if(minLog < 0) minLog = 0;
     var maxLog = Math.log(this.max);
 
     // adjustment factor
